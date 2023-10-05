@@ -77,6 +77,10 @@ $isInsertOk = $req->execute([
  if( !$isInsertOk ) {
     echo "Erreur lors de l'enregistrement";
     die;
+ } else {
+    $idUser = $db->lastInsertId();
+    $_SESSION['id'] -> $idUser;
+    $_SESSION['login'] -> $login;
  }
 
 
