@@ -31,7 +31,7 @@ if( isset( $_GET['error'] ) ) {
         <div class="col-12">
             <nav class="nav justify-content-end">
                 <a class="nav-link" href="login.php">Se connecter</a>
-                <a class="nav-link" href="account.php">M'inscrire</a>
+                <a class="nav-link" href="createUserStep1.php">M'inscrire</a>
             </nav>
         </div>
     </div>

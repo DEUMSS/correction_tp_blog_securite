@@ -9,7 +9,7 @@ if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
         die( 'Erreur : ' . $e->getMessage() );
     }
     $sql = 'SELECT * FROM users WHERE login=:login';
-    $reponse = $db->prepare( $sql );
+    $reponse = $bdd->prepare( $sql );
     $reponse->execute( [':login'=>$login] );
 
     if( $acces = $reponse->fetch(PDO::FETCH_ASSOC) ) {
