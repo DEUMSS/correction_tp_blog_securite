@@ -100,6 +100,7 @@ $isInsertOk = $req->execute([
                 <div class="mb-3 row justify-content-end">
                     <div class="col-sm-4">
                         <button type="submit" class="btn btn-primary mb-3">Valider</button>
+                        <a href="index.php" class="btn btn-secondary mb-3"> Ignorer </a>
                     </div>
                 </div>
 
