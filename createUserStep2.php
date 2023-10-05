@@ -61,14 +61,10 @@ if( $password != $passwordConfirm ) {
 } 
 
 
-$salt = random_bytes( SODIUM_CRYPTO_PWHASH_SALTBYTES );
-$passHash = sodium_crypto_pwhash( 
-    SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_KEYBYTES, 
+$passHash = sodium_crypto_pwhash_str(  
     $password, 
-    $salt, 
     SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE,
-    SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE,
-    SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13
+    SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE
 );
 
 $req = $db->prepare( 
@@ -76,7 +72,7 @@ $req = $db->prepare(
  );
 $isInsertOk = $req->execute([
     ':pseudo'   => $login,
-    ':password' => bin2hex( $passHash ) 
+    ':password' => $passHash
  ]);
  if( !$isInsertOk ) {
     echo "Erreur lors de l'enregistrement";
