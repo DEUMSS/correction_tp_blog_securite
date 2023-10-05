@@ -2,7 +2,7 @@
 session_start();
 try
     {
-        $db = new PDO('mysql:host=localhost:3306;dbname=damien,damien,Cei7Thi&;charset=utf8', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=damien;charset=utf8', 'damien', 'Cei7Thi&');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une
     }
     catch(Exception $e)

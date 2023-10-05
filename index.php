@@ -71,7 +71,7 @@ session_start();
             // Connexion Ã  la base de donnÃ©es
             try
             {
-                $db = new PDO('mysql:host=localhost:3306;dbname=damien,damien,Cei7Thi&;charset=utf8', 'blog', 'blog');
+                $db = new PDO('mysql:host=localhost;dbname=damien;charset=utf8', 'damien', 'Cei7Thi&');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On Ã©met une alerte Ã  chaque fois qu'une
             }
             catch(Exception $e)
