@@ -98,11 +98,11 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `commentaire`, `date_co
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users2`
+-- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users2`;
-CREATE TABLE IF NOT EXISTS `users2` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -111,10 +111,10 @@ CREATE TABLE IF NOT EXISTS `users2` (
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users2`
+-- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users2` (`id`, `pseudo`, `password`, `photo`) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `password`, `photo`) VALUES
 (20, 'test3', '356ccf8f4cffa26abbf71e5690d636a0f5d38b5fd2b05fbaea3e8e840359d75b', 'photo_profil.jpg'),
 (19, 'test', 'f095b37254d089a79441fe832191030fa01c2e4a29dd84d341fc72e4a6f76305', 'photo_profil.jpg');
 COMMIT;

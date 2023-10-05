@@ -52,7 +52,7 @@ if( isset( $_FILES['photo'] ) && $_FILES['photo']['error'] == 0 ) {
 }
 
 $idUser = $_POST['idUser'];
-$req = $db->prepare( 'UPDATE users2 SET photo=:photo WHERE id=:id ');
+$req = $db->prepare( 'UPDATE users SET photo=:photo WHERE id=:id ');
 $setUpdate = $req->execute([
         ':photo'        => $photoName,
         ':id'           => $idUser
