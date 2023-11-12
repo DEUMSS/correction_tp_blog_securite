@@ -1,9 +1,19 @@
 <?php
 session_start();
+if( strstr($_SERVER['HTTP_HOST'], '51.178.86.117') ){
+    $dbname = 'damien';
+    $dblogin = 'damien';
+    $dbpassword = 'Cei7Thi&';
+} else {
+    $dbname = 'blog';
+    $dblogin = 'root';
+    $dbpassword = '';
+}
+
 try
 {
-    $db = new PDO('mysql:host=localhost;dbname=damien;charset=utf8', 'damien', 'Cei7Thi&');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une
+    $db = new PDO('mysql:host=localhost;dbname='.$dbname.';charset=utf8', $dblogin, $dbpassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On Ã©met une alerte Ã  chaque fois qu'une
 }
 catch(Exception $e)
 {

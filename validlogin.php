@@ -1,10 +1,22 @@
 <?php
 session_start();
 
+if( strstr($_SERVER['HTTP_HOST'], '51.178.86.117') ){
+    $dbname = 'damien';
+    $dblogin = 'damien';
+    $dbpassword = 'Cei7Thi&';
+} else {
+    $dbname = 'blog';
+    $dblogin = 'root';
+    $dbpassword = '';
+}
+
+
+
 if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
     $login = $_POST['login'];
     try {
-        $db = new PDO('mysql:host=localhost;dbname=damien;charset=utf8', 'damien', 'Cei7Thi&');
+        $db = new PDO('mysql:host=localhost;dbname='.$dbname.';charset=utf8', $dblogin, $dbpassword);
     } catch( Exception $e) {
         die( 'Erreur : ' . $e->getMessage() );
     }
