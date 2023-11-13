@@ -20,6 +20,8 @@ session_start();
         <div class="col-12">
             <nav class="nav justify-content-end">
                 <?php
+                var_dump($_SESSION['login']);
+                var_dump($_SESSION['isAdmin']);
                     $isConnect = false;
                     if( isset( $_SESSION['login'] ) && !$_GET['error'] ) {
                         $isConnect = true;
