@@ -25,16 +25,7 @@ catch(Exception $e)
 $sql = 'SELECT pseudo, roles FROM users';
 
 $result = $db->query($sql);
-
-if(isset($result)){
-    $tabUser = [
-        'pseudo' => $result['pseudo'],
-        'role'   => $result['roles']
-    ];
-}else{
-    echo("Une erreur est survenue lors de la recherche des utilisateurs");
-    die;
-}
+$tabUser = current($result->fetch());
 
 ?>
 
