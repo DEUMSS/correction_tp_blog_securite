@@ -78,7 +78,7 @@ if( $password != $passwordConfirm ) {
 );*/
 
 $req = $db->prepare( 
-    "INSERT INTO users( pseudo, password ) VALUE( :pseudo, :password )"
+    "INSERT INTO users( pseudo, password, roles) VALUE( :pseudo, :password, 'ROLE_USER')"
  );
 $isInsertOk = $req->execute([
    $_SESSION['id'] -> $idUser,

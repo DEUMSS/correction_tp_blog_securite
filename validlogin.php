@@ -25,11 +25,11 @@ if( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
     $reponse->execute( [':login'=>$login] );
 
     if( $acces = $reponse->fetch(PDO::FETCH_ASSOC) ) {
-        if(sodium_crypto_pwhash_str_verify($acces['password'], $_POST['password'] )) {
+        if(/*sodium_crypto_pwhash_str_verify(*/$acces['password'] == $_POST['password'] )/*)*/ {
             $_SESSION['login'] = $login;
+            $_SESSION['roles'] = $acces['roles'];
             header('Location:index.php?error=0');
             die;
-        
         } else {
             header('Location:login.php?error=1&passerror=1&login='.$login);
             die;

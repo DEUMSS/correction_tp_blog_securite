@@ -24,11 +24,20 @@ session_start();
                     if( isset( $_SESSION['login'] ) && !$_GET['error'] ) {
                         $isConnect = true;
                     }
+                    $isAdmin = false;
+                    if(isset($_SESSION['roles']) && !$_GET['error']){
+                        $isAdmin = $_SESSION['roles'];
+                    }
                 ?>
                 <?php
-                if( $isConnect ) {
+                if( $isConnect=true && $isAdmin = 'ROLE_ADMIN'){
                 ?>
+                <a class="nav-link" href="gestionUser.php">Gestion des utilisateurs</a>
                 <a class="nav-link" href="logout.php">Se déconnecter</a>
+                <?php
+                }elseif($isConnect=true && $isAdmin = 'ROLE_USER'){
+                ?>
+                    <a class="nav-link" href="logout.php">Se déconnecter</a>
                 <?php
                 } else {
                 ?>
