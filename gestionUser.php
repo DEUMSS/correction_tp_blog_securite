@@ -20,8 +20,23 @@ catch(Exception $e)
 {
     die('Erreur : '.$e->getMessage());
 }
-?>
 
+
+$sql = 'SELECT pseudo, roles FROM users';
+
+$result = $db->query($sql);
+
+if(isset($result)){
+    $tabUser = [
+        'pseudo' => $result['pseudo'],
+        'role'   => $result['roles']
+    ];
+}else{
+    echo("Une erreur est survenue lors de la recherche des utilisateurs");
+    die;
+}
+
+?>
 
 <div class="row">
     <div class="col-12">
@@ -32,12 +47,17 @@ catch(Exception $e)
 <table>
     <thead>
         <tr>
-            <th></th>
+            <th>pseudos</th>
+            <th>roles</th>
         </th>
     </thead>
     <tbody>
+        <?php
+            foreach($tabUser as $user)
+        ?>
         <tr>
-            <th></th>
+            <td><a href="modifUser"><?=$user['pseudo']?></a></td>
+            <td><?=$user['role']?></td>
         </tr>
     </tbody>
 </table>
