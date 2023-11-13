@@ -81,8 +81,8 @@ $req = $db->prepare(
     "INSERT INTO users( pseudo, password ) VALUE( :pseudo, :password )"
  );
 $isInsertOk = $req->execute([
-    $_SESSION['id'] = $idUser,
-    $_SESSION['login'] = $login,
+    $_SESSION['id'] => $idUser,
+    $_SESSION['login'] => $login
  ]);
  if( !$isInsertOk ) {
     echo "Erreur lors de l'enregistrement";
