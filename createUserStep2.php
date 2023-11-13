@@ -71,18 +71,20 @@ if( $password != $passwordConfirm ) {
 } 
 
 
-$passHash = sodium_crypto_pwhash_str(
+/*$passHash = sodium_crypto_pwhash_str(
     $password,
     SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE,
     SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE
-);
+);*/
 
 $req = $db->prepare( 
     "INSERT INTO users( pseudo, password ) VALUE( :pseudo, :password )"
  );
 $isInsertOk = $req->execute([
-    $_SESSION['id'] -> $idUser,
-    $_SESSION['login'] -> $login
+//    $_SESSION['id'] -> $idUser,
+//    $_SESSION['login'] -> $login
+    ':pseudo' => $_SESSION['login'],
+    ':password' => $_SESSION['inputPasswordConfirm']
  ]);
  if( !$isInsertOk ) {
     echo "Erreur lors de l'enregistrement";
