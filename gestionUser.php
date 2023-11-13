@@ -25,8 +25,9 @@ catch(Exception $e)
 $sql = 'SELECT pseudo, roles FROM users';
 
 $result = $db->query($sql);
-$tabUser = current($result->fetch());
+$tabUser = $result->fetchAll(PDO::FETCH_ASSOC);
 
+var_dump($tabUser);
 ?>
 
 <div class="row">
@@ -44,11 +45,14 @@ $tabUser = current($result->fetch());
     </thead>
     <tbody>
         <?php
-            foreach($tabUser as $user)
+            foreach($tabUser as $user){
         ?>
         <tr>
             <td><a href="modifUser"><?=$user['pseudo']?></a></td>
-            <td><?=$user['role']?></td>
+            <td><?=$user['roles']?></td>
         </tr>
+        <?php
+            }
+        ?>
     </tbody>
 </table>
