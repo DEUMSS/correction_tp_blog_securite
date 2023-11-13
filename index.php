@@ -21,7 +21,7 @@ session_start();
             <nav class="nav justify-content-end">
                 <?php
                     $isConnect = false;
-                    var_dump($_SESSION['login']);
+                    var_dump($_POST['login']);
                     if( isset( $_SESSION['login'] ) && !$_GET['error'] ) {
                         $isConnect = true;
                     }
